@@ -1,8 +1,10 @@
 package kr.co.lee.bottomnavigationviewexample
 
+import android.view.MenuItem
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.google.android.material.navigation.NavigationBarView
 
 class MainViewModel: ViewModel() {
     private val _currentFragmentType = MutableLiveData(FragmentType.FRAGMENT1)
@@ -11,7 +13,8 @@ class MainViewModel: ViewModel() {
         get() = _currentFragmentType
     
     // FragmentType에 따라 currentFragmentType 변경
-    fun setCurrentFragment(menuItemId: Int): Boolean {
+    fun setCurrentFragment(item: MenuItem): Boolean {
+        val menuItemId = item.itemId
         val pageType = getPageType(menuItemId)
         changeCurrentFragmentType(pageType)
 

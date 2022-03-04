@@ -26,9 +26,9 @@
             android:id="@+id/bnv_main"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:onNavigationItemSelected="@{viewModel::setCurrentFragment}"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:menu="@menu/bottom_navigation_menu"
-            app:menuItemSelected="@{viewModel}" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            app:menu="@menu/bottom_navigation_menu" />
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -5,23 +5,18 @@ import androidx.databinding.BindingAdapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.navigation.NavigationBarView
 
 object ViewBinding {
     @JvmStatic
-    @BindingAdapter("menuItemSelected")
-    fun bindMenuItemSelected(
-        bottomNavigationView: BottomNavigationView, viewModel: MainViewModel
+    @BindingAdapter("onNavigationItemSelected")
+    fun bindOnNavigationItemSelectedListener(
+        view: BottomNavigationView, listener: NavigationBarView.OnItemSelectedListener
     ) {
-        bottomNavigationView.setOnItemSelectedListener { menuItem ->
-            viewModel.setCurrentFragment(menuItem.itemId)
-        }
+        view.setOnItemSelectedListener(listener)
     }
 }
 
-enum class FragmentType(val fragmentTitle: String, val fragmentTag: String) {
-    FRAGMENT1("fragment1", "fragment1_tag"),
-    FRAGMENT2("fragment2", "fragment2_tag"),
-    FRAGMENT3("fragment3", "fragment3_tag");
-}
+
 
 

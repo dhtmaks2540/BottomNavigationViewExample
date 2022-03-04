@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
 
         // Observer 등록
         mainViewModel.currentFragmentType.observe(this) {
+            println(it)
             // FragmentType이 변경되면 changeFragment에 FragmentType 인자로 넘김
             changeFragment(it)
         }
